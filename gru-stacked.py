@@ -95,7 +95,7 @@ class GRU_rnn():
             predictions = tf.nn.softmax(logits) 
             #
             # optimization
-            losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits, ys_)
+            losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits,labels=ys_)
             loss = tf.reduce_mean(losses)
             train_op = tf.train.AdagradOptimizer(learning_rate=0.1).minimize(loss)
             #
